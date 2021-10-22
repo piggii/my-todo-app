@@ -1,7 +1,7 @@
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
-import { ButtonStyled, CardContainer, Container, ErrParagraph, FormContainer, IconContainer, InputContainer, InputStyled, Paragraph, RegisterParagraph } from './loginpage-styled'
+import { AllContainer, ButtonStyled, CardContainer, Container, ErrParagraph, FormContainer, IconContainer, InputContainer, InputStyled, Paragraph, RegisterParagraph } from './loginpage-styled'
 
 export default function Loginpage() {
     const errors = {
@@ -49,24 +49,26 @@ export default function Loginpage() {
 
     return (
         <Container>
-            <CardContainer>
-                <FormContainer onSubmit={(e) => validation(e)}>
-                    <InputContainer>
-                        <InputStyled placeholder="Username" data-type="username" />
-                    </InputContainer>
-                    {err.username ? <ErrParagraph>*Invalid username</ErrParagraph> : null}
+            <AllContainer>
+                <CardContainer>
+                    <FormContainer onSubmit={(e) => validation(e)}>
+                        <InputContainer>
+                            <InputStyled placeholder="Username" data-type="username" />
+                        </InputContainer>
+                        {err.username ? <ErrParagraph>*Invalid username</ErrParagraph> : null}
                     
-                    <InputContainer>
-                        <InputStyled type={ShowPassword ? "text" : "password"} placeholder="Password" data-type="password" />
-                        <IconContainer><FontAwesomeIcon onClick={() => setShowPassword(!ShowPassword)} icon={ShowPassword ? faEye : faEyeSlash} /></IconContainer>
-                    </InputContainer>
-                    {err.password ? <ErrParagraph>*Password is incorrect</ErrParagraph> : null}
+                        <InputContainer>
+                            <InputStyled type={ShowPassword ? "text" : "password"} placeholder="Password" data-type="password" />
+                            <IconContainer><FontAwesomeIcon onClick={() => setShowPassword(!ShowPassword)} icon={ShowPassword ? faEye : faEyeSlash} /></IconContainer>
+                        </InputContainer>
+                        {err.password ? <ErrParagraph>*Password is incorrect</ErrParagraph> : null}
 
-                    <ButtonStyled data-type="btnLogin">Log In</ButtonStyled>
+                        <ButtonStyled data-type="btnLogin">Log In</ButtonStyled>
 
-                    <Paragraph>Don't have an account? <RegisterParagraph>Register</RegisterParagraph> </Paragraph>
-                </FormContainer>
-            </CardContainer>
+                        <Paragraph>Don't have an account? <RegisterParagraph>Register</RegisterParagraph> </Paragraph>
+                    </FormContainer>
+                </CardContainer>
+            </AllContainer>
         </Container>
     )
 }

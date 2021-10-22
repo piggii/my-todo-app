@@ -4,20 +4,63 @@ export const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 `
 
-export const CardContainer = styled.div`
+export const AllContainer = styled.div`
     display: flex;
-    padding: 50px;
+
+    @media only screen and (min-width: 320px) {
+        width: 80%;
+    }
+
+    @media only screen and (min-width: 768px) {
+        width: 60%;
+    }
+
+    @media only screen and (min-width: 1024px) {
+        width: 40%;
+    }
+
+    @media only screen and (min-width: 1440px) {
+        width: 30%;
+    }
+
+    @media only screen and (min-width: 1920px) {
+        width: 20%;
+    }
+`
+
+export const CardContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-style: hidden;
     border-radius: 10px;
     background-color: #fce5eb;
+
+    @media only screen and (min-width: 320px) {
+        padding: 30px 20px;
+    }
+
+    @media only screen and (min-width: 375px) {
+        padding: 40px 30px;
+    }
+
+    @media only screen and (min-width: 425px) {
+        padding: 50px 40px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        padding: 70px 60px;
+    }
 `
 
 export const FormContainer = styled.form`
+    width: 100%;
     display: flex;
     flex-direction: column;
 `
@@ -33,6 +76,7 @@ export const InputContainer = styled.div`
 `
 
 export const InputStyled = styled.input`
+    width: 100%;
     font-family: "Kanit", sans-serif;
     border: none;
     padding: 0px;

@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import { ButtonStyled, Container, CardContainer, ErrParagraph, FormContainer, IconContainer, InputContainer, InputStyled } from './registerpage-styled'
+import { ButtonStyled, Container, CardContainer, ErrParagraph, FormContainer, IconContainer, InputContainer, InputStyled, AllContainer } from './registerpage-styled'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons'
 
@@ -69,33 +69,35 @@ export default function Registerpage() {
 
     return (
         <Container>
-            <CardContainer>
-                <FormContainer onSubmit={(e) => validation(e)}>
-                    <InputContainer>
-                        <InputStyled placeholder="Email address" data-type="email" />
-                    </InputContainer>
-                    {err.email ? <ErrParagraph>*Invalid email address</ErrParagraph> : null}
+            <AllContainer>
+                <CardContainer>
+                    <FormContainer onSubmit={(e) => validation(e)}>
+                        <InputContainer>
+                            <InputStyled placeholder="Email address" data-type="email" />
+                        </InputContainer>
+                        {err.email ? <ErrParagraph>*Invalid email address</ErrParagraph> : null}
 
-                    <InputContainer>
-                        <InputStyled placeholder="Username" data-type="username" />
-                    </InputContainer>
-                    {err.username ? <ErrParagraph>*Username must be at least 6 characters</ErrParagraph> : null}
-                    
-                    <InputContainer>
-                        <InputStyled type={showPassword ? "text" : "password"} placeholder="Password" data-type="password" />
-                        <IconContainer><FontAwesomeIcon onClick={() => setShowPassword(!showPassword)} icon={showPassword ? faEye : faEyeSlash } /></IconContainer>
-                    </InputContainer>
-                    {err.password ? <ErrParagraph>*Password must be at least 6 characters</ErrParagraph> : null}
-                    
-                    <InputContainer>
-                        <InputStyled type={showConfirmPassword ? "text" : "password"} placeholder="Confirm password" data-type="confirmPassword" />
-                        <IconContainer><FontAwesomeIcon onClick={() => setShowConfirmPassword(!showConfirmPassword)} icon={showConfirmPassword ? faEye : faEyeSlash } /></IconContainer>
-                    </InputContainer>
-                    {err.confirmPassword ? <ErrParagraph>*Password not match</ErrParagraph> : null}
-                    
-                    <ButtonStyled data-type="btnSubmit">Register</ButtonStyled>
-                </FormContainer>
-            </CardContainer>
+                        <InputContainer>
+                            <InputStyled placeholder="Username" data-type="username" />
+                        </InputContainer>
+                        {err.username ? <ErrParagraph>*Username must be at least 6 characters</ErrParagraph> : null}
+                        
+                        <InputContainer>
+                            <InputStyled type={showPassword ? "text" : "password"} placeholder="Password" data-type="password" />
+                            <IconContainer><FontAwesomeIcon onClick={() => setShowPassword(!showPassword)} icon={showPassword ? faEye : faEyeSlash } /></IconContainer>
+                        </InputContainer>
+                        {err.password ? <ErrParagraph>*Password must be at least 6 characters</ErrParagraph> : null}
+                        
+                        <InputContainer>
+                            <InputStyled type={showConfirmPassword ? "text" : "password"} placeholder="Confirm password" data-type="confirmPassword" />
+                            <IconContainer><FontAwesomeIcon onClick={() => setShowConfirmPassword(!showConfirmPassword)} icon={showConfirmPassword ? faEye : faEyeSlash } /></IconContainer>
+                        </InputContainer>
+                        {err.confirmPassword ? <ErrParagraph>*Password not match</ErrParagraph> : null}
+                        
+                        <ButtonStyled data-type="btnSubmit">Register</ButtonStyled>
+                    </FormContainer>
+                </CardContainer>
+            </AllContainer>
         </Container>
     )
 }
